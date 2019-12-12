@@ -1,0 +1,5 @@
+python >= 3.6
+pytorch >= 1.3
+torchvision
+py-opencv
+pycocotools
