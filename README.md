@@ -29,6 +29,14 @@ git submodule update --init --recursive
 - pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
 - GCC >= 4.9
 
+Create Conda environment, run:
+
+```shell
+conda create --name cv-project --file requirements.txt
+conda activate cv-project
+pip install 'git+https://github.com/facebookresearch/fvcore'
+```
+
 ### Build Detectron2
 
 After having the above dependencies, run:
