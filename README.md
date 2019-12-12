@@ -2,6 +2,10 @@
 
 CV 2019 Fall Course Project (Mask R-CNN)
 
+- [CV-2019-Fall-Course](#cv-2019-fall-course)
+    - [Installation](#installation)
+        - [Requirements](#requirements)
+        - [Build Detectron2](#build-detectron2)
 
 ## Installation
 
