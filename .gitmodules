@@ -1,3 +1,6 @@
 [submodule "Detectron2"]
 	path = Detectron2
 	url = git@github.com:facebookresearch/detectron2.git
+[submodule "MMDetection"]
+	path = MMDetection
+	url = git@github.com:open-mmlab/mmdetection.git
