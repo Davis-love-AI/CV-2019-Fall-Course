@@ -1,0 +1,72 @@
+INPUT:
+  MIN_SIZE_TRAIN: (800,) # (800,)  # (1024,)
+  MAX_SIZE_TRAIN: 800    # 800      # 1024
+  MIN_SIZE_TEST: 800     # 800      # 1024
+  MAX_SIZE_TEST: 800      # 800      # 1024
+MODEL:
+  META_ARCHITECTURE: "GeneralizedRCNN"
+  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
+  BACKBONE:
+    CONV_BODY: "R-101-FPN"
+  RESNETS:
+    BACKBONE_OUT_CHANNELS: 256
+  RPN:
+    USE_FPN: True
+    ANCHOR_SIZES:  (32, 64, 128, 256, 512) # (16, 32, 64, 128, 256) # (32, 64, 128, 256, 512)
+    ANCHOR_STRIDE: (4, 8, 16, 32, 64)
+    ASPECT_RATIOS: (0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
+    PRE_NMS_TOP_N_TRAIN: 2000
+    PRE_NMS_TOP_N_TEST: 1000
+    POST_NMS_TOP_N_TEST: 1000
+    FPN_POST_NMS_TOP_N_TEST: 1000
+    BATCH_SIZE_PER_IMAGE: 512
+    CLS_WEIGHT: 2.
+    LOC_WEIGHT: 0.1429
+    INNER_LAYER: 64
+  ROI_HEADS:
+    USE_FPN: True
+    BBOX_REG_WEIGHTS: (10., 10., 5., 5., 10.)
+    BG_IOU_THRESHOLD: 0.4
+    FG_IOU_THRESHOLD: 0.4
+    POSITIVE_FRACTION: 0.4
+    CLS_WEIGHT: 2.0
+    LOC_WEIGHT: 4.0
+    NMS: 0.1
+  ROI_BOX_HEAD:
+    NUM_CLASSES: 16
+    POOLER_RESOLUTION: 14
+    POOLER_SCALES: (0.25, 0.125, 0.0625, 0.03125)
+    POOLER_SAMPLING_RATIO: 2
+    FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractor" # "FPN2ORNFeatureExtractor" # "FPN2MLPFeatureExtractor"
+    PREDICTOR: "FPNPredictor"                    # "ORNPredictor"            # "FPNPredictor"
+DATASETS:
+  TRAIN: ("dota_train_obb_cocostyle", )
+  TEST: ("dota_val_obb_cocostyle",)
+DATALOADER:
+  SIZE_DIVISIBILITY: 32
+  NUM_WORKERS: 0
+SOLVER:
+  IMS_PER_BATCH: 1  # 4        # 4         # 4        # 1        # 2       # 4      # 8     # 16
+  BASE_LR: 0.0003   # 0.002    # 0.00125   # 0.005    # 0.00125  # 0.0025  # 0.005  # 0.01  # 0.02
+  WEIGHT_DECAY: 0.0001
+  STEPS: (100000, 200000) # (60000,)      # (90000, 110000) # (25000, 50000)  # (60000, 80000)
+  MAX_ITER: 300000    # 75000        # 125000          # 75000           # 90000
+TEST:
+  IMS_PER_BATCH: 1 # (4000 per epoch)
+
+OUTPUT_DIR: "outputs" # /e2e_faster_rcnn_dota_R_50_R_FPN_1x/19-10-09"
+ROTATE: True
+
+# reg_fuction
+FACTOR_IOU_LOSS: False
+MULTI_REG: False
+R2CNN: True
+
+# attention module
+RPN_ATTENTION: True
+SNL_ATTENTION: False
+GC_ATTENTION: False
+
+RECT_POLY_BALANCE: "No"
+FACTOR_PROPOSAL_GT: 0.75
+BALANCE_GT: False
