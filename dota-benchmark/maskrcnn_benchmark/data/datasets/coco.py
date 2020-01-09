@@ -6,7 +6,7 @@ from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
 from maskrcnn_benchmark.structures.keypoint import PersonKeypoints
 
-from maskrcnn_benchmark.utils import rotate_utils as trans
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 from maskrcnn_benchmark.config import cfg
 
 

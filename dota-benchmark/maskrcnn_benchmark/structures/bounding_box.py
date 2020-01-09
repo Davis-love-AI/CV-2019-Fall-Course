@@ -1,7 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 import torch
-from maskrcnn_benchmark.utils import rotate_utils as trans
-
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 
 # transpose
 FLIP_LEFT_RIGHT = 0

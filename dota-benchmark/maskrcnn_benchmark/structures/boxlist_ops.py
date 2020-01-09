@@ -5,7 +5,7 @@ from .bounding_box import BoxList
 
 from maskrcnn_benchmark.layers import nms as _box_nms
 
-from maskrcnn_benchmark.utils import rotate_utils as trans
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 from maskrcnn_benchmark.layers import riou
 from maskrcnn_benchmark.layers import rnms
 from maskrcnn_benchmark.config import cfg

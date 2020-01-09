@@ -4,7 +4,7 @@ import math
 import torch
 
 from maskrcnn_benchmark.config import cfg
-from maskrcnn_benchmark.utils import rotate_utils as trans
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 
 
 class BoxCoder(object):

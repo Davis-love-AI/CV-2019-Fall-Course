@@ -7,7 +7,7 @@ from maskrcnn_benchmark.structures.boxlist_ops import cat_boxlist
 from maskrcnn_benchmark.structures.boxlist_ops import boxlist_nms, boxlist_rnms
 from maskrcnn_benchmark.structures.boxlist_ops import remove_small_boxes
 
-from maskrcnn_benchmark.utils import rotate_utils as trans
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 from ..utils import cat
 from .utils import permute_and_flatten
 from maskrcnn_benchmark.config import cfg

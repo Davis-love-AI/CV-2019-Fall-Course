@@ -9,7 +9,7 @@ from maskrcnn_benchmark.structures.boxlist_ops import cat_boxlist
 from maskrcnn_benchmark.modeling.box_coder import BoxCoder, BoxCoder2
 
 from maskrcnn_benchmark.config import cfg
-from maskrcnn_benchmark.utils import rotate_utils as trans
+from maskrcnn_benchmark.utils.rotate_tools import rotate_utils as trans
 
 
 class PostProcessor(nn.Module):
